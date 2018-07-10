@@ -2,37 +2,23 @@
 <html>
   <head>
     <title>Underbar Test Suite</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="lib/css/mocha.css" />
-    <script src="lib/chai.js"></script>
-    <script src="lib/mocha.js"></script>
-    <script src="lib/sinon.js"></script>
-    <script src="lib/sinon-chai.js"></script>
-    <script src="lib/cardboard.js"></script>
-    <script src="lib/testSupport.js"></script>
-
-    <!-- Source files -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+    <script src="node_modules/chai/chai.js"></script>
+    <script src="node_modules/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="node_modules/sinon/pkg/sinon.js"></script>
+    <script src="node_modules/mocha/mocha.js"></script>
     <script src="src/underbar.js"></script>
-    <!-- End source files -->
-
-    <!-- Test files -->
-    <script>
-          var clock;
-
-          before(function() {
-            clock = sinon.useFakeTimers();
-          });
-
-          after(function() {
-            clock.restore();
-          });
-    </script>
-    <script src="spec/part1.js"></script>
-    <script src="spec/part2.js"></script>
-    <script src="spec/extraCredit.js"></script>
-    <!-- End test files -->
   </head>
   <body>
     <div id="mocha"></div>
+    <script src="spec/setup.js"></script>
+    <script src="spec/part1.js"></script>
+    <script src="spec/part2.js"></script>
+    <script src="spec/extraCredit.js"></script>
+    <script>
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
   </body>
 </html>
